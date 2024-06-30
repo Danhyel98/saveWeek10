@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // To close the user modal with the cross
+    
     closeModalUser.addEventListener('click', function () {
         modalUser.style.display = 'none';
     });
@@ -113,6 +114,12 @@ document.addEventListener('DOMContentLoaded', function () {
             movies.forEach(movie => {
                 const movieSlide = document.createElement('div');
                 movieSlide.classList.add('swiper-slide');
+                movieSlide.setAttribute('data-title', movie.title);
+                movieSlide.setAttribute('data-year', new Date(movie.release_date).getFullYear());
+                movieSlide.setAttribute('data-genre', movie.genre_ids.map(id => getGenreName(id)).join(' / '));
+                movieSlide.setAttribute('data-rating', movie.vote_average.toFixed(1));
+                movieSlide.setAttribute('data-description', movie.overview);
+                movieSlide.setAttribute('data-cast', 'Cast details');
                 movieSlide.innerHTML = `
                     <img src="https://image.tmdb.org/t/p/w500${movie.poster_path}" alt="${movie.title}" class="movie-poster">
                     <div class="info">
@@ -124,6 +131,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     </div>
                 `;
                 resultsWrapper.appendChild(movieSlide);
+                
+
             });
 
             // Show the results container
@@ -142,6 +151,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         } else {
             resultsWrapper.innerHTML = '<p>No results found</p>';
+            
         }
     }
 
@@ -209,6 +219,9 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             `;
             latestReleasesWrapper.appendChild(movieSlide);
+            movieSlide.addEventListener('click', ()=> {
+                bigModal.style.visibility = 'visible';
+            })
         });
 
         // Initialize Swiper for latest releases after updating the DOM
@@ -220,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 nextEl: ".latest-releases-container .swiper-button-next",
                 prevEl: ".latest-releases-container .swiper-button-prev",
             },
+            
         });
     }
 
@@ -251,12 +265,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const apiKey = '1fe912c1a5266bef10bada3a3af21e7e'; // Replace with your TMDb API key
 
-    // Define the specific genres you want to include in the desired order
+    // Define the specific genres  to include in the desired order
     const allowedGenres = ['Comedy', 'Drama', 'Action', 'Romance', 'Fantasy', 'Animation'];
 
     // Fetch genres from TMDb and set Comedy as default
     fetchGenres();
 
+//Genre tabs
     function fetchGenres() {
         const genreUrl = `https://api.themoviedb.org/3/genre/movie/list?api_key=${apiKey}&language=en-US`;
 
@@ -313,11 +328,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function updateGenreTitle(genreName) {
-        const genreTitle = document.querySelector('.genre-p');
-        // Capitalize the first letter and keep the rest as lowercase
-        genreTitle.textContent = genreName.charAt(0).toUpperCase() + genreName.slice(1).toLowerCase();
-    }
 
     function fetchMoviesByGenre(genreId) {
         const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=${genreId}`;
@@ -362,7 +372,12 @@ document.addEventListener('DOMContentLoaded', function () {
             },
         });
     }
-
+// To change the genre whenever we click on a tab
+function updateGenreTitle(genreName) {
+    const genreTitle = document.querySelector('.genre-p');
+    // Capitalize the first letter and keep the rest as lowercase
+    genreTitle.textContent = genreName.charAt(0).toUpperCase() + genreName.slice(1).toLowerCase();
+}
     // Helper function to get genre name by ID
     function getGenreName(id) {
         const genres = {
@@ -394,9 +409,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 //ICI COMMENCE POUR LE BIG MODAL
-    
+// const bigModal = document.querySelector('.modal-infos-movie');
+// const closeBigModalBtn = document.querySelector('#close-btn-big-modal');
+
+
+// Close modal button event listener
+window.addEventListener('click', function(){
+    bigModal.style.visibility = 'hidden';
+})
+closeBigModalBtn.addEventListener('click', () => {
+    bigModal.style.visibility = 'hidden';
+});
 
 });
 
 
 
+// Get all slides
+const slides = document.querySelectorAll('.swiper-slide');
+
+// Get the modal
+const modal = document.querySelector('.modal-infos-movie');
+
+// Add click event listener to each slide
+slides.forEach(slide => {
+  slide.addEventListener('click', () => {
+    // Logic to populate modal with movie information based on slide clicked
+    // Example: You might populate modal with title, description, etc.
+    
+    // Show the modal
+    modal.style.visibility = 'visible';
+  });
+});
+
+// Function to close modal
+function closeModal() {
+  modal.style.visibility = 'hidden';
+}
+
+// Close modal when close button or outside modal is clicked (optional)
+const closeButton = document.querySelector('#close-btn-big-modal');
+if (closeButton) {
+  closeButton.addEventListener('click', closeModal);
+}
+
+// Additional logic as needed

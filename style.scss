@@ -150,6 +150,7 @@ body {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                cursor: pointer;
                 .info {
                     position: absolute;
                     display: flex;
@@ -511,11 +512,11 @@ body {
             padding-top: 75px;
             padding-left: 80px;
             padding-right: 80px;
-            position: relative;
             position: fixed;
             top: 50%; 
             left: 50%; 
             transform: translate(-50%, -50%);
+            
             #close-btn-big-modal{
                 position: absolute;
                 left: 20px;
