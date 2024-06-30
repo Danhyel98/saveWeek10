@@ -1,0 +1,627 @@
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap");
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  font-family: "Inria Sans";
+}
+
+body {
+  font-family: "Inria Sans";
+  background-color: #191b20;
+}
+body img {
+  max-width: 100%;
+  height: auto;
+}
+body a {
+  text-decoration: none;
+  color: #fff;
+}
+body header {
+  background-color: #141517;
+}
+body header .header-cont {
+  color: #fff;
+  max-width: 1080px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+body header .header-cont a {
+  text-decoration: none;
+  color: #fff;
+}
+body header #logo {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 43.16px;
+  margin-top: 25px;
+  margin-bottom: 30px;
+}
+body header #logo #be-red {
+  color: red;
+}
+body header ul {
+  list-style: none;
+  display: flex;
+  gap: 1.875rem;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.79px;
+  letter-spacing: 3%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+body main {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*.results-container{
+      //display: none;// To Hide it if we didnt search anything
+  }*/
+}
+body main .hidden {
+  display: none;
+}
+body main .movie-search-cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 270px;
+  margin-top: 75px;
+}
+body main .movie-search-cont .movie-search {
+  width: 270px;
+  height: 45px;
+  border-radius: 8px 0 0 8px;
+  border: none;
+  box-shadow: 4px 8px 20px 0px rgba(0, 0, 0, 0.2509803922);
+  outline: none;
+  padding-left: 18px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+}
+body main .movie-search-cont .search-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 0px 8px 8px 0px;
+  background: #CC0000;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+body main .movie-search-cont .search-btn .search-btn img {
+  color: #fff;
+  width: 20px;
+  height: 15px;
+}
+body main .search-p, body main .latest-p {
+  color: #fff;
+}
+body main .latest-p {
+  margin-bottom: 10px;
+}
+body main .results-container, body main .latest-releases-container, body main .genre-container {
+  height: 350px;
+  max-width: 1080px;
+  margin: 100px auto;
+  position: relative;
+}
+body main .results-container .search-p, body main .results-container .last-releases-p, body main .results-container .genre-p, body main .latest-releases-container .search-p, body main .latest-releases-container .last-releases-p, body main .latest-releases-container .genre-p, body main .genre-container .search-p, body main .genre-container .last-releases-p, body main .genre-container .genre-p {
+  margin: 10px;
+}
+body main .swiper {
+  position: static;
+  width: 100%;
+  max-width: 1080px;
+  height: 100%;
+}
+body main .swiper .swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body main .swiper .swiper-slide .info {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: white;
+  opacity: 0;
+  transition: opacity 0.3s;
+  padding: 10px 30px;
+  text-align: center;
+}
+body main .swiper .swiper-slide .info .hover-title {
+  font-size: 20px;
+  font-weight: 700;
+}
+body main .swiper .swiper-slide .info .hover-year {
+  font-size: 20px;
+  font-weight: 700;
+  color: gray;
+}
+body main .swiper .swiper-slide .info .hover-genre {
+  font-size: 14px;
+  font-weight: 500;
+}
+body main .swiper .swiper-slide .info .hover-star {
+  width: 35px;
+  height: 35px;
+}
+body main .swiper .swiper-slide .info .hover-score {
+  font-size: 32px;
+  font-weight: 700;
+  color: red;
+}
+body main .swiper .swiper-slide .info:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 1;
+}
+body main .swiper .swiper-slide .swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+body main .swiper .swiper-button-prev,
+body main .swiper .swiper-button-next {
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  top: 60%;
+}
+body main .swiper .swiper-button-next {
+  background-image: url("/img/right-arrow-swipper.svg") !important;
+  right: -50px;
+}
+body main .swiper .swiper-button-prev {
+  background-image: url("/img/left-arrow-swipper.svg") !important;
+  left: -50px;
+}
+body main .swiper .swiper-button-next::after,
+body main .swiper .swiper-button-prev::after {
+  content: "";
+}
+body main .genre-p {
+  color: #fff;
+}
+body main .genre-swiper-container {
+  height: 350px;
+  max-width: 1080px;
+  margin: 0 auto;
+  position: relative;
+}
+body main .genre-container {
+  max-width: 1080px;
+  height: 600px;
+  margin: 0 auto;
+}
+body main .genre-container .genre-title {
+  color: #fff;
+  text-align: center;
+}
+body main .genre-container .genre-list-div {
+  margin: 0 auto;
+  max-width: 700px;
+  display: flex;
+  align-items: center;
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+body main .genre-container .genre-list-div .genre-list {
+  list-style: none;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  gap: 35px;
+  margin: 0 auto;
+}
+body main .genre-container .genre-list-div .genre-list .genre-list-item {
+  border-radius: 8px;
+  padding: 7px 9px;
+  color: #fff;
+  background-color: #191b20;
+  cursor: pointer;
+}
+body main .genre-container .genre-list-div .genre-list .genre-list-item:hover {
+  background-color: rgb(150, 30, 30);
+}
+body main .genre-container .genre-list-div .genre-list .selected {
+  background-color: red;
+}
+body main .genre-container .genre-list-div .genre-list .selected:hover {
+  background-color: rgb(150, 30, 30);
+}
+body main .genre-container hr {
+  color: #fff;
+  width: 600px;
+  margin: 0 auto;
+}
+body main .genre-container .genre-p {
+  margin: 10px;
+  font-size: 1rem;
+  font-weight: 400;
+}
+body main .modal-login {
+  /*This class is to give the background color when we click on singup or login*/
+  width: 410px;
+  height: 608px;
+  background-color: #000;
+  color: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 8px;
+  z-index: 1;
+  display: none;
+}
+body main .modal-login .selected-tab {
+  background: red;
+  border: 1px solid red !important;
+}
+body main .modal-login #close-btn-modal {
+  cursor: pointer;
+  align-self: flex-end;
+}
+body main .modal-login .btnTab {
+  text-transform: uppercase;
+  width: 290px;
+  height: 54px;
+  border-radius: 8px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-family: Inria Sans;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.78px;
+  letter-spacing: 0.03em;
+  margin-bottom: 55px;
+}
+body main .modal-login .btnTab .signup-btn {
+  border: 1px solid #fff;
+  width: 150px;
+  height: 55px;
+  border-radius: 8px 0 0 8px;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border-right: none;
+}
+body main .modal-login .btnTab .login-btn {
+  width: 150px;
+  height: 55px;
+  border-radius: 0 8px 8px 0;
+  align-items: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  border: 1px solid white;
+}
+body main .modal-login .login-form {
+  display: none;
+  width: 288px;
+  height: 44px;
+  border-radius: 8px 0px 0px 0px;
+  margin-bottom: 45px;
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+body main .modal-login .login-form #username {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-bottom: 25px;
+  padding-left: 18px;
+}
+body main .modal-login .login-form #password {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-bottom: 25px;
+  padding-left: 18px;
+}
+body main .modal-login .login-form .bottom {
+  margin-top: 45px;
+}
+body main .modal-login .login-form .bottom .register_btn {
+  color: #fff;
+  background-color: red;
+  width: 290px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  text-transform: uppercase;
+  font-family: Inria Sans;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23.98px;
+  letter-spacing: 3%;
+  margin-bottom: 30px;
+}
+body main .modal-login .login-form .signup a {
+  color: red;
+  height: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+}
+body main .modal-login .login-form .signup p {
+  margin-top: 20px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+}
+body main .modal-login .register-form {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px 0px 0px 0px;
+  margin-bottom: 45px;
+  margin: 0 auto;
+  margin-bottom: 45px;
+}
+body main .modal-login .register-form .remember #text-underlined, body main .modal-login .register-form .t-and-c #text-underlined {
+  text-decoration: underline;
+}
+body main .modal-login .register-form #username {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-bottom: 25px;
+  padding-left: 18px;
+}
+body main .modal-login .register-form #email {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-bottom: 25px;
+  padding-left: 18px;
+}
+body main .modal-login .register-form #password {
+  width: 288px;
+  height: 44px;
+  border-radius: 8px;
+  outline: none;
+  border: none;
+  margin-bottom: 25px;
+  padding-left: 18px;
+}
+body main .modal-login .register-form .bottom {
+  margin-top: 45px;
+}
+body main .modal-login .register-form .bottom .register_btn {
+  color: #fff;
+  background-color: red;
+  width: 290px;
+  height: 50px;
+  border-radius: 8px;
+  border: none;
+  text-transform: uppercase;
+  font-family: Inria Sans;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23.98px;
+  letter-spacing: 3%;
+  margin-bottom: 30px;
+}
+body main .modal-login .register-form .signup a {
+  color: red;
+  height: 20px;
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19.36px;
+}
+body main .modal-login .register-form .signup p {
+  margin-top: 20px;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.36px;
+  text-align: left;
+}
+body main .modal-infos-movie {
+  visibility: hidden;
+  z-index: 1;
+  max-width: 740px;
+  height: 530px;
+  background: #000;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #fff;
+  padding-top: 75px;
+  padding-left: 80px;
+  padding-right: 80px;
+  position: relative;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+body main .modal-infos-movie #close-btn-big-modal {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+body main .modal-infos-movie #img-modal-movie {
+  width: 235px;
+  height: 350px;
+}
+body main .modal-infos-movie #img-modal-movie #img-modal-movie img {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #000;
+  object-fit: cover;
+}
+body main .modal-infos-movie #infos-movie #title-movie-modal, body main .modal-infos-movie #infos-movie #rating-movie {
+  color: red;
+}
+body main .modal-infos-movie #infos-movie #title-movie-modal {
+  height: 24px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23.98px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-transform: uppercase;
+}
+body main .modal-infos-movie #infos-movie #year-release-movie {
+  width: 29px;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.79px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: #E9E9E9;
+  margin-bottom: 10px;
+}
+body main .modal-infos-movie #infos-movie #i-star {
+  width: 21px;
+  height: 21px;
+}
+body main .modal-infos-movie #infos-movie #rating-movie {
+  align-items: center;
+  text-align: center;
+  width: 33px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 24.2px;
+  text-align: center;
+}
+body main .modal-infos-movie #infos-movie #genre-movie-modal {
+  margin-top: 10px;
+  width: 102px;
+  height: 17px;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.79px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: #E9E9E9;
+  margin-bottom: 15px;
+}
+body main .modal-infos-movie #infos-movie #description-movie-modal {
+  width: 292px;
+  height: 278px;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: #fff;
+}
+body main .modal-infos-movie #infos-movie #cast-block-modal {
+  display: flex;
+  flex-direction: row;
+}
+body main .modal-infos-movie #infos-movie #cast-txt {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16.79px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  width: 39px;
+  height: 17px;
+  color: #E9E9E9;
+}
+body main .modal-infos-movie #infos-movie #people-cast {
+  margin-left: 15px;
+  width: 244px;
+  height: 34px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16.79px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  color: #E9E9E9;
+}
+body footer {
+  background-color: #141517;
+}
+body footer .footer-cont {
+  max-width: 1080px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  color: #fff;
+}
+body footer .footer-cont #logo-footer {
+  text-decoration: none;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 43.16px;
+  text-align: left;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+body footer .footer-cont #logo-footer #be-red {
+  color: red;
+}
+body footer .footer-cont nav {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+body footer .footer-cont nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+body footer .footer-cont #copyright {
+  color: #B8B8B8;
+  margin-top: 80px;
+  margin-bottom: 80px;
+}

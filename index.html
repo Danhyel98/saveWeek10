@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeMovies-henry</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+</head>
+<body>
+    <!--This wil be the header of the body-->
+    <header>
+        <div class="header-cont">
+            <a id="logo" href="#"><span id="be-red">be</span>movies</a>
+            <nav>
+                <ul id="menu">
+                    <li><a href="#movie-name">SEARCH</a></li>
+                    <li><a href="#latest">LATEST</a></li>
+                    <li><a href="#genres">GENRES</a></li>
+                    <li><a href="#" id="open-register" class="register-link">REGISTER</a></li>
+                    <li><a href="#" class="signin-link">SIGNIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!--This is after the end of the header-->
+    <!--This will be the main of the body-->
+    <main>
+        <!--This will be the input txt to be able to search a movie by its name-->
+        <div class="movie-search-cont">
+            <input type="text" class="movie-search" id="movie-name" placeholder="godfather">
+            <button type="submit" class="search-btn" id="search-btn"><img src="img/Vector.png" alt=""></button>
+        </div>
+        <!--Search result section-->
+        <section class="results-container hidden" id="results">
+            <p class="search-p">Results for “<span class="search-bar-value"></span> ”</p>
+            <!-- Swiper Results-->
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="info">
+                            <h3 class="hover-title">The God Father</h3>
+                            <h4 class="hover-year">1990</h4>
+                            <p class="hover-genre">C    rime / Drama / Thriller</p>
+                            <img class="hover-star" src="img/star.svg" alt="star" />
+                            <p class="hover-score">7.4</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="info">
+                            <h3 class="hover-title">The God Father</h3>
+                            <h4 class="hover-year">1990</h4>
+                            <p class="hover-genre">Crime / Drama / Thriller</p>
+                            <img class="hover-star" src="img/star.svg" alt="star" />
+                            <p class="hover-score">7.4</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="info">
+                            <h3 class="hover-title">The God Father</h3>
+                            <h4 class="hover-year">1990</h4>
+                            <p class="hover-genre">Crime / Drama / Thriller</p>
+                            <img class="hover-star" src="img/star.svg" alt="star" />
+                            <p class="hover-score">7.4</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">Slide 4</div>
+                    <div class="swiper-slide">Slide 5</div>
+                    <div class="swiper-slide">Slide 6</div>
+                    <div class="swiper-slide">Slide 7</div>
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!--End of result section-->
+        <!--Swiper for latest releases-->
+        <section class="latest-releases-container" id="latest">
+            <p class="latest-p">Latest Releases</p>
+            <!-- Swiper latest releases-->
+            <div class="swiper mySwiper latest-releases-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Swiper slides will be dynamically added here -->
+                </div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <!--End of latest releases section-->
+        <!--Swiper for genres-->
+        <section class="genre-container" id="genres">
+            <div class="genre-section">
+                <h3 class="genre-title">Movies by genre</h3>
+            </div>
+            <div class="genre-list-div">
+                <ul class="genre-list">
+                    <!--the class selected is the red background-->
+
+                </ul>
+            </div>
+            <hr>
+            <p class="genre-p">Genre</p>
+            <!-- Swiper Genres-->
+            <div class="genre-swiper-container">
+                <div class="swiper mySwiper genre-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">Slide 1</div>
+                        <div class="swiper-slide">Slide 2</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <di class="swiper-slide">Slide 3</di v>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 3</div>
+                        <div class="swiper-slide">Slide 3</div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+        <!--Modal Login/Signup-->
+        <!--The class="selected-tab" will be to give the red background 
+            to login or signup. You can find it in the style.scss line number 245-->
+        <div class="modal-login">
+            <img src="img/Group 9.png" alt="cross" id="close-btn-modal">
+            <div class="btnTab">
+                <a href="#" class="signup-btn" >Signup</a>
+                <a href="#" class="selected-tab login-btn">Login</a>
+            </div>
+            <form class="login-form">
+                <input type="text" name="username" placeholder="Username" id="username">
+                <input type="password" name="password" placeholder="Password" id="password">
+                <div class="remember">
+                    <input type="checkbox" name="remember" id="">
+                    <label for="remember">Remember me</label>
+                </div>    
+                <div class="bottom">
+                <button class="register_btn" type="submit">Login</button>
+                <div class="signup">
+                    <a href="#">I forgot my password</a>
+                    <p>Not a member yet ? <a href="#">Sign up</a></p>
+                </div>
+            </div>
+            </form>
+            <form class="register-form">
+                <input type="text" name="username" placeholder="Username" id="username">
+                <input type="email" name="email" placeholder="Email" id="email">
+                <input type="password" name="password" placeholder="Password" id="password">
+                <input type="password" name="confirm-password" placeholder="Confirm password" id="password">
+                <div class="t-and-c">
+                    <input type="checkbox" name="terms-and-conditions" id="">
+                    <label for="terms-and-conditions">You agree to our <a href="#" id="text-underlined">User Agreement</a> and acknowledge reading our <a href="" id="text-underlined"> User Privacy Notice</a></label>
+                </div>    
+                <div class="bottom">
+                <button class="register_btn" type="submit">Register</button>
+                <div class="signup">
+    
+                </div>
+            </div>
+            </form>
+        </div>
+        <div class="to-hide-big-modal">
+            <div class="modal-infos-movie">
+                <img src="img/Group 9.png" alt="close" id="close-btn-big-modal">
+                <div id="img-modal-movie">
+                    <img class="movie-poster" src="img/image1.jpeg" alt="Movie Poster">
+                </div>
+                <div id="infos-movie">
+                    <h2 class="title" id="title-movie-modal">The Godfather</h2>
+                    <h3 class="year" id="year-release-movie">1972</h3>
+                    <p class="score"><img src="img/star.svg" alt="star" id="i-star"> <span id="rating-movie">8.7</span></p>
+                    <p class="genres" id="genre-movie-modal">Crime/Drama</p>
+                    <p class="synopsis" id="description-movie-modal"></p>
+                    <p id="cast-block-modal"><span id="cast-txt">CAST:</span><span id="people-cast"> Marlon Brando, Al Pacino, James Caan, Robert Duvall</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!--This is after the end of the main-->
+    <!--This will be the footer of the body-->
+    
+    <footer>
+        <div class="footer-cont">
+            <a id="logo-footer" href="#"><span id="be-red">be</span>movies</a>
+            <nav id="foot-nav">
+                <ul id="menu">
+                    <li><a href="#search">SEARCH</a></li>
+                    <li><a href="#latest">LATEST</a></li>
+                    <li><a href="#genres">GENRES</a></li>
+                    <li><a href="#" id="open-register">REGISTER</a></li>
+                    <li><a href="#">SIGNIN</a></li>
+                </ul>
+            </nav>
+            <p id="copyright">&#169;2023 - All rights reserved</p>
+    </footer>
+    <!--This is after the end of the footer-->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

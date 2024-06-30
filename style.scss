@@ -1,0 +1,665 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap');
+
+html, body {
+    width: 100%;
+    height: 100%;
+    font-family: "Inria Sans";
+}   
+body {
+    font-family: "Inria Sans";
+    background-color: #191b20;
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+    a{
+        text-decoration: none;
+        color: #fff;
+    }
+    header {
+        background-color: #141517;
+        .header-cont{
+            color: #fff;
+            max-width: 1080px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            a {
+            text-decoration: none;
+            color: #fff;
+            }
+        }
+        #logo {
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 43.16px;
+            margin-top: 25px;
+            margin-bottom: 30px;
+            #be-red{
+                color: red;
+            }
+        }
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 1.875rem;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16.79px;
+            letter-spacing: 3%;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+    }
+    main {
+        max-width: 1080px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .hidden {
+            display: none;
+        }
+        /*.results-container{
+            //display: none;// To Hide it if we didnt search anything
+        }*/
+        .movie-search-cont{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: 270px;
+            margin-top: 75px;
+
+
+            .movie-search{
+                width: 270px;
+                height: 45px;
+                border-radius: 8px 0 0 8px;
+                border: none;
+                box-shadow: 4px 8px 20px 0px #00000040;
+                outline: none;
+                padding-left: 18px;
+                font-family: Inter;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 19.36px;
+                text-align: left;
+                
+
+            }
+            .search-btn {
+                width: 45px;
+                height: 45px;
+                border-radius: 0px 8px 8px 0px;
+                background: #CC0000;
+                border: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                
+
+                .search-btn img{
+                    color: #fff;
+                    width: 20px;
+                    height: 15px;
+                }
+            }
+        }
+        .search-p, .latest-p{
+            color:#fff;
+        }
+        .latest-p{
+            margin-bottom: 10px;
+        }
+        
+        .results-container, .latest-releases-container, .genre-container{
+            height: 350px;
+            max-width: 1080px;
+            margin: 100px auto;
+            position: relative;
+        
+            .search-p, .last-releases-p, .genre-p{
+                margin: 10px;
+            }
+        }
+        
+        .swiper {
+            position: static;
+            width: 100%;
+            max-width: 1080px;
+
+            height: 100%;
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                .info {
+                    position: absolute;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 15px;
+                    height: 100%;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    //background: rgba(0, 0, 0, 0.1); // Fond semi-transparent
+                    color: white;
+                    opacity: 0; // Masquer par défaut
+                    transition: opacity 0.3s;
+                    padding: 10px 30px;
+                    text-align: center;
+            
+                    .hover-title {
+                        font-size: 20px;
+                        font-weight: 700;
+                    }
+            
+                    .hover-year {
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: gray;
+                    }
+            
+                    .hover-genre {
+                        font-size: 14px;
+                        font-weight: 500;
+                    }
+                    
+                    .hover-star {
+                        width: 35px;
+                        height: 35px;
+                    }
+                    .hover-score {
+                        font-size: 32px;
+                        font-weight: 700;
+                        color: red;
+                    }
+            
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.8); // Griser l'arrière-plan
+                        opacity: 1; 
+                    }
+                }
+        
+                .swiper-slide img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+        
+            .swiper-button-prev,
+            .swiper-button-next {
+                background-size: contain;
+                background-repeat: no-repeat;
+                width: 20px;
+                height: 20px;
+                top: 60%;
+            }
+        
+            .swiper-button-next {
+                background-image: url("/img/right-arrow-swipper.svg") !important;
+                right: -50px;
+            }
+        
+            .swiper-button-prev {
+                background-image: url("/img/left-arrow-swipper.svg") !important;
+                left: -50px;
+            }
+        
+            .swiper-button-next::after,
+            .swiper-button-prev::after {
+                content: '';
+            }
+        }
+        .genre-p {
+            color: #fff;
+        }
+        .genre-swiper-container{
+            height: 350px;
+            max-width: 1080px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .genre-container{
+            //display: none;
+            max-width: 1080px;
+            height: 600px;
+            margin: 0 auto;
+            .genre-title {
+                color: #fff;
+                text-align: center;
+            }
+            .genre-list-div{
+                margin: 0 auto;
+                max-width: 700px;
+                display: flex;
+                align-items: center;
+                margin-top: 45px;
+                margin-bottom: 25px;
+                .genre-list{
+                    list-style: none;
+                    color: #fff;
+                    display: flex;
+                    flex-direction: row;
+                    gap: 35px;
+                    margin: 0 auto;
+                    .genre-list-item{
+                        border-radius: 8px;
+                        padding: 7px 9px;
+                        color: #fff;
+                        background-color: #191b20;
+                        cursor: pointer;
+                        &:hover {
+                            background-color: rgb(150, 30, 30);
+                        }
+                    }
+                    .selected{
+                        background-color: red;
+                        &:hover{
+                            background-color: rgb(150, 30, 30);
+                        }
+                    }
+                }
+            }
+            hr{
+                color: #fff;
+                width: 600px;
+                margin: 0 auto;
+            }
+            .genre-p{
+                margin: 10px;
+                font-size: 1rem;
+                font-weight: 400;
+            }
+        }
+        .modal-login{
+            /*This class is to give the background color when we click on singup or login*/
+            .selected-tab{
+                background: red;
+                border: 1px solid red !important;
+            }
+            //It is hidden I have yet to do the red color to the background of one of the tabs (login or signup)
+            width: 410px;
+            height: 608px;
+            background-color: #000;
+            color: #fff;
+            position: fixed;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            padding: 20px;
+            border-radius: 8px; 
+            z-index: 1;
+            display:  none;//To hide the whole modal login
+            #close-btn-modal{
+                cursor: pointer;
+                align-self: flex-end;
+            }
+            .btnTab{
+                text-transform: uppercase;
+                width: 290px;
+                height: 54px;
+                border-radius: 8px;
+                //background-color: red;
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin: 0 auto;
+                font-family: Inria Sans;
+                font-size: 24px;
+                font-weight: 700;
+                line-height: 28.78px;
+                letter-spacing: 0.03em;
+                margin-bottom: 55px;                
+                .signup-btn{
+                    border: 1px solid #fff;
+                    width: 150px;
+                    height: 55px;
+                    border-radius: 8px 0 0 8px;
+                    align-items: center;
+                    text-align: center;
+                    display: flex;
+                    justify-content: center;
+                    border-right: none;
+                }
+                .login-btn{
+                   width: 150px;
+                   height: 55px;
+                   border-radius: 0 8px 8px 0;
+                   align-items: center;
+                   text-align: center;
+                   display: flex;
+                   justify-content: center;
+                   border: 1px solid white;
+                }
+            }
+            .login-form{
+                display: none;//To hide the login
+                width: 288px;
+                height: 44px;
+                border-radius: 8px 0px 0px 0px;
+                margin-bottom: 45px;
+                margin: 0 auto;
+                margin-bottom: 45px;
+                #username{
+                    width: 288px;
+                    height: 44px;
+                    border-radius: 8px ;
+                    outline: none;
+                    border: none;
+                    margin-bottom: 25px;
+                    padding-left: 18px;
+                }
+                #password{
+                    width: 288px;
+                    height: 44px;
+                    border-radius: 8px ;
+                    outline: none;
+                    border: none;
+                    margin-bottom: 25px;
+                    padding-left: 18px;
+                }
+                .bottom{
+                    margin-top: 45px;
+                    .register_btn{
+                        color: #fff;
+                        background-color: red;
+                        width: 290px;
+                        height: 50px;
+                        border-radius: 8px;
+                        border: none;
+                        text-transform: uppercase;
+                        font-family: Inria Sans;
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 23.98px;
+                        letter-spacing: 3%;
+                        margin-bottom: 30px;
+                    }
+                }
+                .signup{
+                    a {
+                        color: red;
+                        height: 20px;
+                        font-family: Inter;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19.36px;
+                    }
+                    p {
+                        margin-top: 20px;
+                        font-family: Inter;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 19.36px;
+                        text-align: left;
+                    }
+                }
+            }
+            .register-form{
+                //display: none;//To hide the register form
+                width: 288px;
+                height: 44px;
+                border-radius: 8px 0px 0px 0px;
+                margin-bottom: 45px;
+                margin: 0 auto;
+                margin-bottom: 45px;
+                .remember, .t-and-c{
+                    #text-underlined {
+                        text-decoration: underline;
+                    }
+                }
+                #username{
+                    width: 288px;
+                    height: 44px;
+                    border-radius: 8px ;
+                    outline: none;
+                    border: none;
+                    margin-bottom: 25px;
+                    padding-left: 18px;
+                }
+                #email{
+                    width: 288px;
+                    height: 44px;
+                    border-radius: 8px ;
+                    outline: none;
+                    border: none;
+                    margin-bottom: 25px;
+                    padding-left: 18px;
+                }
+                #password{
+                    width: 288px;
+                    height: 44px;
+                    border-radius: 8px ;
+                    outline: none;
+                    border: none;
+                    margin-bottom: 25px;
+                    padding-left: 18px;
+                }
+                .bottom{
+                    margin-top: 45px;
+                    .register_btn{
+                        color: #fff;
+                        background-color: red;
+                        width: 290px;
+                        height: 50px;
+                        border-radius: 8px;
+                        border: none;
+                        text-transform: uppercase;
+                        font-family: Inria Sans;
+                        font-weight: 700;
+                        font-size: 20px;
+                        line-height: 23.98px;
+                        letter-spacing: 3%;
+                        margin-bottom: 30px;
+                    }
+                }
+                .signup{
+                    a {
+                        color: red;
+                        height: 20px;
+                        font-family: Inter;
+                        font-weight: 400;
+                        font-size: 16px;
+                        line-height: 19.36px;
+                    }
+                    p {
+                        margin-top: 20px;
+                        font-family: Inter;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 19.36px;
+                        text-align: left;
+                    }
+                }
+            }
+        }
+        
+        .modal-infos-movie{
+            visibility: hidden;
+            z-index: 1;
+            max-width: 740px;
+            height: 530px;
+            background: #000;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            color: #fff;
+            padding-top: 75px;
+            padding-left: 80px;
+            padding-right: 80px;
+            position: relative;
+            position: fixed;
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%);
+            #close-btn-big-modal{
+                position: absolute;
+                left: 20px;
+                top: 20px;
+                cursor: pointer;
+            }
+            #img-modal-movie{
+                width: 235px;
+                height: 350px;
+                #img-modal-movie img{
+                    width: 100%;
+                    height: 100%;
+                    border: 1px solid #000;
+                    object-fit: cover;
+                }
+            }
+            #infos-movie{
+                #title-movie-modal,#rating-movie{
+                    color: red;
+                }
+                #title-movie-modal{
+                    height: 24px;
+                    font-size: 20px;
+                    font-weight: 700;
+                    line-height: 23.98px;
+                    letter-spacing: 0.03em;
+                    text-align: left;
+                    text-transform: uppercase;
+                }
+                #year-release-movie{
+                    width: 29px;
+                    height: 17px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 16.79px;
+                    letter-spacing: 0.03em;
+                    text-align: left;
+                    color: #E9E9E9;
+                    margin-bottom: 10px;
+                    
+                }
+                #i-star{
+                    width: 21px;
+                    height: 21px;
+                }
+                #rating-movie{
+                    align-items: center;
+                    text-align: center;
+                    width: 33px;
+                    font-size: 28px;
+                    font-weight: 700;
+                    line-height: 24.2px;
+                    text-align: center;
+                }
+                #genre-movie-modal{
+                    margin-top: 10px;
+                    width: 102px;
+                    height: 17px;
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 16.79px;
+                    letter-spacing: 0.03em;
+                    text-align: left;
+                    color: #E9E9E9;
+                    margin-bottom: 15px;
+                }
+                #description-movie-modal{
+                    width: 292px;
+                    height: 278px;
+                    font-size: 16px;
+                    font-weight: 300;
+                    line-height: 24px;
+                    letter-spacing: 0.03em;
+                    text-align: left;
+                    color: #fff;
+                }
+                #cast-block-modal{
+                    display: flex;
+                    flex-direction: row;
+                }
+                #cast-txt{
+                    font-size: 14px;
+                    font-weight: 700;
+                    line-height: 16.79px;
+                    letter-spacing: 0.03em;
+                    text-align: left;
+                    width: 39px;
+                    height: 17px;
+                    color: #E9E9E9;
+                }
+                #people-cast{
+                    margin-left: 15px;
+                    width: 244px;
+                    height: 34px;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16.79px;
+                    letter-spacing: 0.03em;
+                    text-align: left;
+                    color: #E9E9E9;
+                }
+            }
+        }
+      
+        
+    }
+    footer {
+        background-color: #141517;
+        .footer-cont{
+            max-width: 1080px;
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            color: #fff;
+            #logo-footer{
+                text-decoration: none;
+                color: #fff;
+                text-transform: uppercase;
+                font-size: 36px;
+                font-weight: 700;
+                line-height: 43.16px;
+                text-align: left;
+                margin-top: 70px;
+                margin-bottom: 70px;
+
+                #be-red {
+                    color: red;
+                }
+            }
+            nav{
+                margin-top: 80px;
+                margin-bottom: 80px;
+                ul {
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 30px;
+                }
+            }
+            #copyright{
+                color: #B8B8B8;
+                margin-top: 80px;
+                margin-bottom: 80px;
+            }
+        }
+    }
+}
