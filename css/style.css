@@ -205,11 +205,13 @@ body main .swiper .swiper-button-next {
 }
 body main .swiper .swiper-button-next {
   background-image: url("/img/right-arrow-swipper.svg") !important;
+  z-index: 2;
   right: -50px;
 }
 body main .swiper .swiper-button-prev {
   background-image: url("/img/left-arrow-swipper.svg") !important;
   left: -50px;
+  z-index: 2;
 }
 body main .swiper .swiper-button-next::after,
 body main .swiper .swiper-button-prev::after {
